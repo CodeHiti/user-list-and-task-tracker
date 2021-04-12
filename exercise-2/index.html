@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Todo list App</title>
+      <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+      <link href='public/css/main.css' rel='stylesheet' type='text/css'>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+   <body>
+      <div class="container">
+         <h3>
+            <b>Add item</b>
+         </h3>
+         <section id="add-task">
+            <span id="add-task-error" for="new-task" hidden></span>
+            <div id="add-task-block">
+               <input id="new-task" type="text">
+               <button class="submit" onclick="addTaskId()">Add</button>
+            </div>
+         </section>
+         <h3>
+            <b>Todo</b>
+         </h3>
+         <ul id="incomplete-tasks">
+         </ul>
+         <h3>
+            <b>Completed</b>
+         </h3>
+         <ul id="completed-tasks">
+         </ul>
+      </div>
+      <template id="taskTemplateSection">
+         <li class="todo-item">	
+            <input type="checkbox" tabindex="0">	
+            <label tabindex="0"></label>	
+            <input type="text" tabindex="0">	
+            <button class="edit" tabindex="0">Edit</button>	
+            <button class="delete" tabindex="0">Delete</button>	
+         </li>
+      </template>
+      <!-- <script src="./src/todo/taskHelper.js"></script>	
+         <script src="./src/todo/storageHelper.js"></script> -->
+      <script src="./js/app.js"></script>
+   </body>
+</html>

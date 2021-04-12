@@ -1,0 +1,198 @@
+// $phone: "(min-width: 0px) and (max-width: 375px)";
+$phone: 375px;
+$primaryBackgroundColor: #ffffff;
+$primaryFontColor: #333;
+$primaryOutlineColor: rgba(184, 172, 152, 0.185);
+$warningColor: red;
+$borderColor: #eee;
+$dangerColor: #cf2323;
+$secondaryFontColor: #888888;
+$tertiaryFontColor: #333333;
+$secondaryBorderColor: #ddd;
+$successColor: #0fc57c;
+$actionColor: #233dcf;
+
+body {
+	background: $primaryBackgroundColor;
+	color: $primaryFontColor;
+	font-family: Lato, sans-serif;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	width: 600px;
+	margin: 100px auto 0;
+
+	*:focus {
+		outline: 1px solid $primaryOutlineColor;
+	}
+
+	// @media screen and (max-width: $phone) {
+	//   width:100% !important;
+	//   margin:0px !important;
+	// }
+}
+
+#add-task-error {
+	color: $warningColor;
+}
+
+.todo-item {
+	display: flex;
+}
+
+#add-task {
+	padding: 20px 0px;
+	display: flex;
+	flex-direction: column;
+	padding: 20px 0px;
+}
+
+#new-task {
+	flex-grow: 0.65;
+	&.error {
+		outline: 0.5px solid $warningColor;
+	}
+}
+
+#add-task-block {
+	display: flex;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+
+	li {
+		overflow: hidden;
+		padding: 20px 0px;
+		border-bottom: 1px solid $borderColor;
+
+		* {
+			float: left;
+		}
+
+		input[type="text"] {
+			display: none;
+			flex-grow: 0.5;
+			min-width: 100px;
+		}
+
+		&.editMode {
+			input[type="text"] {
+				display: block;
+				padding: 10px 0px 10px 10px;
+			}
+
+			label {
+				display: none;
+			}
+		}
+
+		> input[type="checkbox"] {
+			margin: 0 10px;
+			position: relative;
+			top: 15px;
+		}
+
+		> label {
+			font-size: 18px;
+			line-height: 40px;
+			padding: 0 0 0 11px;
+			flex-grow: 0.67;
+			min-width: 100px;
+		}
+
+		> .delete:hover {
+			color: $dangerColor;
+		}
+
+		> .edit:hover {
+			color: $actionColor;
+		}
+	}
+}
+
+#completed-tasks {
+	label {
+		flex-grow: 0.61;
+	}
+}
+
+li,
+h3 {
+	clear: both;
+	list-style: none;
+}
+
+input,
+button {
+	outline: none;
+}
+
+button {
+	background: none;
+	border: 0px;
+	color: $secondaryFontColor;
+	font-size: 15px;
+	font-family: Lato, sans-serif;
+	min-width: 60px;
+	cursor: pointer;
+
+	:hover {
+		color: $primaryFontColor;
+	}
+}
+
+/* Heading */
+h3,
+label[for="new-task"] {
+	color: $tertiaryFontColor;
+	font-weight: 700;
+	font-size: 15px;
+	border-bottom: 2px solid $secondaryFontColor;
+	padding: 30px 0 10px;
+	margin: 0px;
+	text-transform: uppercase;
+}
+
+input {
+	&[type="text"] {
+		margin: 0;
+		font-size: 18px;
+		line-height: 18px;
+		height: 18px;
+		padding: 10px;
+		border: 1px solid $secondaryBorderColor;
+		background: $primaryBackgroundColor;
+		border-radius: 6px;
+		font-family: Lato, sans-serif;
+		color: $secondaryFontColor;
+
+		:focus {
+			color: $primaryFontColor;
+		}
+	}
+}
+
+.submit:hover {
+	color: $successColor;
+}
+
+/* Completed */
+#completed-tasks label {
+	text-decoration: line-through;
+	color: $secondaryFontColor;
+}
+
+@media (max-width: 375px) {
+	.container {
+		display: contents;
+		min-width: 100%;
+		margin: 0px;
+	}
+	ul li > label {
+		flex-grow: 1;
+	}
+}
